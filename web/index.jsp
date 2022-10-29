@@ -7,7 +7,7 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Index </title>
+    <title>Index Jsp </title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -218,7 +218,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Los mejores aguacates</p>
-                            <a class="features-btn" href="#">COMPRAR</a>
+                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>
@@ -236,7 +236,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Hortalizas a los mejores precios</p>
-                            <a class="features-btn" href="#">COMPRAR</a>
+                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>
@@ -254,7 +254,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Verduras frescas de todas las regiones</p>
-                            <a class="features-btn" href="#">COMPRAR</a>
+                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>

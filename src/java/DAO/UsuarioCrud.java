@@ -5,9 +5,9 @@
  */
 package DAO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -32,7 +32,7 @@ public class UsuarioCrud {
         
          System.out.print("Insercion exitosa");
                 
-        }catch(Exception e){
+        }catch(SQLException e){
         
             System.out.print("Error Insercion usuario " + e.getMessage());
         
