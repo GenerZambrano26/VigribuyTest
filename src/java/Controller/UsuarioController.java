@@ -40,6 +40,7 @@ public class UsuarioController extends HttpServlet {
            
            if (request.getParameter("btningresar")!=null){
                
+               
                con.insert("insert into usuarios (identificacion,nombre,direccion,telefono,correo,contraseña,Estados_id,administrador_id,cuentasbancarias_id,tipodocumentos_id) values ('1234567','"+request.getParameter("inputNombres")+"' '"+request.getParameter("inputApellidos")+ "','"+ request.getParameter("inputDireccion")+"','"+ request.getParameter("inputTelefono")+"' ,'"+ request.getParameter("inputEmail")+"','"+ request.getParameter("inputPassword")+"','1','1','1','1')");
                
                response.sendRedirect("MostrarUsuario.jsp?msg=Datos Guardados!!");

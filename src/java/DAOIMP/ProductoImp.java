@@ -6,6 +6,7 @@
 package DAOIMP;
 
 import DAO.Conexion;
+import static DAO.Fecha.calendar;
 import Interfaces.Iproducto;
 import Modelo.Producto;
 import java.io.BufferedInputStream;
@@ -17,11 +18,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.servlet.http.HttpServletResponse;
 
+import java.time.LocalDateTime;
 /**
  *
  * @author ADMIN
@@ -43,7 +54,6 @@ public class ProductoImp implements Iproducto {
             rs = psta.executeQuery();
 
             while (rs.next()) {
-               
 
                 p.setId(rs.getInt(1));
                 p.setNombre(rs.getString(2));
@@ -52,7 +62,7 @@ public class ProductoImp implements Iproducto {
                 p.setImg(rs.getBinaryStream(12));
                 p.setExistencia(rs.getDouble(7));
                 //           Producto P = new Producto(id,nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,estados_id,unidadesdemedidas_id,img);
-             
+
                 System.out.print("Objetos cargados Nombre:" + "" + p.getNombre() + " Precio: " + p.getPrecioventa());
 
             }
@@ -147,5 +157,91 @@ public class ProductoImp implements Iproducto {
         }
 
     }
+
+    @Override
+    public void insert(String insSql) {
+        ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+        final String LENGUAJE = "ECMAScript";
+        ScriptEngine engine = scriptEngineManager.getEngineByName(LENGUAJE);
+       
+           
+        try {
+
+            if (engine == null) {
+
+                System.out.println("No se encontro el motror Java");
+                return;
+
+            }
+
+            try {
+
+                psta = con.Conectar().prepareStatement(insSql);
+                psta.executeUpdate();
+
+                engine.eval("swal('Su producto fue agregado con exito');");
+
+            } catch (ScriptException ex) {
+                Logger.getLogger(ProductoImp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            System.out.print("Insercion exitosa");
+
+        } catch (SQLException e) {
+
+            System.out.print("Error Insercion Producto " + e.getMessage());
+            try {
+                engine.eval("swal('Su producto no fue agregado');");
+            } catch (ScriptException ex) {
+                Logger.getLogger(ProductoImp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    @Override
+    public int Agregar(Producto p) {
+        
+        
+     
+        
+             
+        
+          try {
+                 String sql ="insert into producto(nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,Estados_id,unidadesdemedidas_id) values (?,?,?,?,?,?,?,?)";
+                cn= con.Conectar();
+                psta = cn.prepareStatement(sql);
+                
+                psta.setString(1,p.getNombre());
+                psta.setString(2,p.getDescripcion());
+                psta.setDouble(3,p.getPreciocompra());
+                psta.setDouble(4,p.getPrecioventa());
+                psta.setString(5,p.getUrlimagen());
+                psta.setDouble(6,p.getExistencia());
+                psta.setDate(7, (java.sql.Date) p.getFechavencimiento());
+                psta.setInt(8,p.getCategoria_id());
+                psta.setInt(9,p.getEstado_id());
+                psta.setInt(10,p.getUnidadesdemedidas_id());
+                
+                
+                
+                psta.executeUpdate();
+
+               System.out.print("Insercion Producto Exitosa");
+            } catch (Exception ex) {
+                  System.out.print("Error Insercion Producto " + ex.getMessage());
+            }
+        
+        
+        return 0;
+
+        
+        
+        
+    }
+    
+    
+    
+    
 
 }

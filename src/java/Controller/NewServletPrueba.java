@@ -1,6 +1,5 @@
-
 /*
- * To change this license header, choose License Headers in Project Propert<ies.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -8,25 +7,18 @@ package Controller;
 
 import DAO.CodigoIMA;
 import DAO.Fecha;
-import DAOIMP.ProductoImp;
 import DAOIMP.ComprasImp;
-
+import DAOIMP.ProductoImp;
 import Modelo.Carrito;
 import Modelo.Compras;
 import Modelo.Pago;
-import Modelo.Usuario;
 import Modelo.Producto;
+import Modelo.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.script.ScriptException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,10 +33,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author ADMIN
  */
-@WebServlet(name = "ProductoController", urlPatterns = {"/ProductoController"})
-public class ProductoController extends HttpServlet {
-
-    ProductoImp pdao = new ProductoImp();
+@WebServlet(name = "NewServletPrueba", urlPatterns = {"/NewServletPrueba"})
+public class NewServletPrueba extends HttpServlet {
+    
+       ProductoImp pdao = new ProductoImp();
     List<Producto> productos = new ArrayList<>();
     Producto p = new Producto();
     List<Carrito> ListaCarrito = new ArrayList<>();
@@ -55,7 +47,6 @@ public class ProductoController extends HttpServlet {
     double subtotal = 0.00;
     int idp;
     Carrito car;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -67,13 +58,12 @@ public class ProductoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String accion = request.getParameter("accion");
+        
+         String accion = request.getParameter("accion");
         productos = pdao.ListarProductos();
-
         switch (accion) {
-
-            case "Comprar":
+            
+                        case "Comprar":
                 idp = Integer.parseInt(request.getParameter("id"));
                 p = pdao.ListarId(idp);
                 item = item + 1;
@@ -255,8 +245,13 @@ public class ProductoController extends HttpServlet {
                 }
 
                 break;
-
-                 case "Guardar":
+            
+            
+            
+            
+            
+            
+               case "Guardar":
 // Se agregan las librerias common fileup 1.4 y  common io 1.22
                 ArrayList<String> lista = new ArrayList<>();
                 String Cod = CodigoIMA.Codigo();
@@ -319,7 +314,7 @@ public class ProductoController extends HttpServlet {
 //                  
 //                    
 //                    pdao.Agregar(p);
-                    
+//                    
 
                     response.sendRedirect("Create-Products.jsp?msg=Datos Guardados");
                 } catch (Exception ex) {
@@ -335,9 +330,20 @@ public class ProductoController extends HttpServlet {
             default:
                 request.setAttribute("productos", productos);
                 request.getRequestDispatcher("Products.jsp").forward(request, response);
-
+            
+            
+            
+            
+            
+        
+        
         }
-
+        
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

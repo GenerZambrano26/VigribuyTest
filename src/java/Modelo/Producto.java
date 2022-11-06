@@ -8,12 +8,13 @@ package Modelo;
 import java.io.InputStream;
 import java.util.Date;
 
+
 /**
  *
  * @author ADMIN
  */
 public class Producto {
-    
+ 
     int id;
     String nombre;
     String descripcion;
@@ -34,8 +35,8 @@ public class Producto {
         return id;
     }
 
-    public Producto(int id, String nombre, String descripcion, float preciocompra, float precioventa, String urlimagen, double existencia, Date fechavencimiento, int categoria_id, int estado_id, int unidadesdemedidas_id, InputStream img) {
-        this.id = id;
+    public Producto( String nombre, String descripcion, float preciocompra, float precioventa, String urlimagen, double existencia, Date fechavencimiento, int categoria_id, int estado_id, int unidadesdemedidas_id, InputStream img) {
+        
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.preciocompra = preciocompra;

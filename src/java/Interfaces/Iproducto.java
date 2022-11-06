@@ -20,5 +20,8 @@ public interface Iproducto {
     
     public List<Producto> ListarProductos();
     public void listarimg(int id,HttpServletResponse response);
+    public void insert(String insSql);
+   public int Agregar (Producto p);
+   
     
 }
