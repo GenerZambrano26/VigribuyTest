@@ -27,7 +27,7 @@ public class Conexion {
             
             Class.forName("com.mysql.jdbc.Driver");
    
-       con=DriverManager.getConnection("jdbc:mysql://localhost:3306/carritoonline_dbtest?user=root&password=");
+       con=DriverManager.getConnection("jdbc:mysql://localhost:3306/carritooline_db?user=root&password=");
 //        
     //   con=DriverManager.getConnection("jdbc:mysql://databases-auth.000webhost.com:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
        //  con=DriverManager.getConnection("jdbc:mysql://databases-auth.000webhost.com/db_structure.php?server=1:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
