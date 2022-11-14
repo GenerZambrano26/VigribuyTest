@@ -32,7 +32,7 @@ public class DepartamentoImp implements Idepartamento {
         
         
         try {
-            String sql ="SELECT * FROM DEPARTAMENTOS";
+            String sql ="SELECT * FROM departamentos";
                         
             PreparedStatement psta = con.Conectar().prepareStatement(sql);
              

@@ -25,12 +25,15 @@ public class Conexion {
         try{
             
             
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
    
-       con=DriverManager.getConnection("jdbc:mysql://localhost:3306/carritoonline_db?user=root&password=");
+     //  con=DriverManager.getConnection("jdbc:mysql://localhost:3306/carritoonline_dbtest?user=root&password=");
+       con=DriverManager.getConnection("jdbc:mysql://bdxloawpj740qhb8aphf-mysql.services.clever-cloud.com:3306/bdxloawpj740qhb8aphf?autoReconnect=true&useSSL=false&user=ut9qlzsdfetyngqa&password=szvoyN6B6YeIcihFYdf9");
+
+       
 //        
     //   con=DriverManager.getConnection("jdbc:mysql://databases-auth.000webhost.com:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
-       //  con=DriverManager.getConnection("jdbc:mysql://databases-auth.000webhost.com/db_structure.php?server=1:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
+       //  rivcon=DerManager.getConnection("jdbc:mysql://databases-auth.000webhost.com/db_structure.php?server=1:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
 //       con =DriverManager.getConnection("jdbc:mysql:192.1653.876/carritoonline_db","adsi635","AdSi*2393635"); 
 //con=DriverManager.getConnection("jdbc:mysql://104.19.185.120:3306/id19635372_carritoonline_db?user=adsi635&password=AdSi*2393635");
        System.out.print("Conexion Exitosa  ");

@@ -81,8 +81,8 @@
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#services">Servicios</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#portfolio">Portfolio</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#pricing">Precios</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="ProductoController?accion=home">Portfolio</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="Create-Products.jsp">Precios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#about">Acerca</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>
                             </ul>
@@ -218,7 +218,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Los mejores aguacates</p>
-                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
+                            <a class="features-btn" href="ProductoController?accion=home">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>
@@ -236,7 +236,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Hortalizas a los mejores precios</p>
-                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
+                            <a class="features-btn" href="ProductoController?accion=home">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>
@@ -254,7 +254,7 @@
                         </div>
                         <div class="features-content">
                             <p class="text">Verduras frescas de todas las regiones</p>
-                            <a class="features-btn" href="Products.jsp">COMPRAR</a>
+                            <a class="features-btn" href="ProductoController?accion=home">COMPRAR</a>
                         </div>
                     </div> <!-- single features -->
                 </div>

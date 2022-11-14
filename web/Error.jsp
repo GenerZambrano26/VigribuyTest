@@ -1,10 +1,9 @@
 <%-- 
-    Document   : Cart-view
-    Created on : 26-oct-2022, 11:17:24
+    Document   : Error
+    Created on : 30-oct-2022, 8:32:35
     Author     : ADMIN
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -79,107 +78,22 @@
             </ul>
 
         </nav>
-        <h1>Carrito de compra</h1>
+        <h1>Mensaje error </h1>
         <div class="container mt-4">
 
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="card"> 
-
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Data Table</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table  class="table table-hover" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ITEM</th>
-                                        <th>NOMBRE</th>
-                                        <th>DESCRIPCION</th>
-                                        <th>PRECIO</th>
-                                        <th>CANT</th>
-                                        <th>SUBTOTAL</th>
-                                        <th>ACCION</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="car" items="${carrito}">
-                                        <tr>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getNombre()}</td>
-                                            <td>${car.getDescripcion()}
-                                             <img src="ControladorIMG?id=${car.getId()}" width="100" height="100">
-                                            </td>
-                                            <td>${car.getPreciocompra()}</td>
-                                            <td>
-                                               <input type="hidden" id="idpro" value="${car.getId()}" class="form-control text-control" min="1" >  
-                                    <input type="number" id="Cantidad" value="${car.getCantidad()}" class="form-control text-control" min="1" >
-                                            </td>
-                                            <td>${car.getSubtotal()}</td>
-
-                                            <td>
-                                                <input type="hidden" id="idp" value="${car.getId()}">
-                                                <a href="#" id="btnDelete">Eliminar</a>
-                                                <a href="#" id="btnDel">Editar</a>
-                                            </td>
-                                        </tr>  
-
-                                    </c:forEach>
-
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                    </div> 
-                        
-                        </div>
+            <div class="col-sm-4">
+                
+                <div class="alert alert-danger" role="alert">
+                    
+                    <h4 class="alert-heading">Error al Generar!</h4>
+                    
+                    <a href="ProductoController?accion=home" class="btn btn-warning">Volver</a>
+                    
                 </div>
-
-
-                <div class="col-sm-4">
-
-                    <div class="card">
-                        <div class="card-header">
-
-                            <h3> Generar Compra</h3>
-
-                        </div> 
-                        <div class="card-body">
-                            <label>Subtotal:</label>
-                            <input type="text" value="$.${subtotal}0" readonly=""class="form-control" >
-                            <label>Descuento:</label>
-                            <input type="text"value="$.${descuento}0" readonly=""class="form-control" >
-                            <label>Total a Pagar:</label>
-                            <input type="text" value="$.${totalpagar}0" readonly=""class="form-control" >
-                        </div> 
-                        <div class="card-footer">
-
-                            <a href="ProductoController?accion=Carrito" class="btn btn-info btn-block"> Realizar Pago</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            <a href="#" id="GenerarCompra" class="btn btn-danger btn-block">Generar Compra</a>
-                        </div> 
-                    </div>
-                </div>
-
+                
+                
+                
             </div>
-
-
 
         </div>
 
@@ -188,9 +102,9 @@
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
 
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="assets/js/funciones.js" type="text/javascript"></script>
+<script src="assets/js/prueba.js" type="text/javascript"></script>
 
     </body>
 </html>
