@@ -11,6 +11,7 @@ import Interfaces.Iusuario;
 import Modelo.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class UsuarioImp  implements Iusuario{
         
         
         try {
-            String sql ="SELECT * FROM USUARIOS";
+            String sql ="select * from usuarios";
                         
             PreparedStatement psta = con.Conectar().prepareStatement(sql);
              
@@ -45,15 +46,19 @@ public class UsuarioImp  implements Iusuario{
                 
             Usuario usuar = new Usuario(id,identificacion,nombre,direccion,telefono,correo);
             listUser.add(usuar);
-             System.out.print("Objetos cargados" + "" + rs.getString(1));
+             System.out.print("Usuarios Obj  " + "" + rs.getString(1));
              
              
             }
             
-        } catch (Exception e) {
+        } catch (SQLException ex) {
             
             
-            System.out.print("Error Consul User" + e.getMessage());
+            System.out.print("Error Consul User " + ex.getMessage());
+             // handle any errors
+    System.out.println("SQLException: " + ex.getMessage());
+    System.out.println("SQLState: " + ex.getSQLState());
+    System.out.println("VendorError: " + ex.getErrorCode());
           
         }
         return listUser;

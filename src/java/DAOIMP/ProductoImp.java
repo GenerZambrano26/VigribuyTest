@@ -208,7 +208,7 @@ public class ProductoImp implements Iproducto {
              
         
           try {
-                 String sql ="insert into producto(nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,Estados_id,unidadesdemedidas_id) values (?,?,?,?,?,?,?,?)";
+                 String sql ="insert into productos(nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,Estados_id,unidadesdemedidas_id) values (?,?,?,?,?,?,?,?)";
                 cn= con.Conectar();
                 psta = cn.prepareStatement(sql);
                 
