@@ -112,13 +112,16 @@
                                              <img src="ControladorIMG?id=${car.getId()}" width="100" height="100">
                                             </td>
                                             <td>${car.getPreciocompra()}</td>
-                                            <td>${car.getCantidad()}</td>
+                                            <td>
+                                               <input type="hidden" id="idpro" value="${car.getId()}" class="form-control text-control" min="1" >  
+                                    <input type="number" id="Cantidad" value="${car.getCantidad()}" class="form-control text-control" min="1" >
+                                            </td>
                                             <td>${car.getSubtotal()}</td>
 
                                             <td>
-                                                <input type="hidden" id="idp" value="${car.getId}">
-                                                <a href="">Eliminar</a>
-                                                <a href="">Editar</a>
+                                                <input type="hidden" id="idp" value="${car.getId()}">
+                                                <a href="#" id="btnDelete">Eliminar</a>
+                                                <a href="#" id="btnDel">Editar</a>
                                             </td>
                                         </tr>  
 
@@ -145,7 +148,7 @@
                         </div> 
                         <div class="card-body">
                             <label>Subtotal:</label>
-                            <input type="text" value="$.${totalpagar}0" readonly=""class="form-control" >
+                            <input type="text" value="$.${subtotal}0" readonly=""class="form-control" >
                             <label>Descuento:</label>
                             <input type="text"value="$.${descuento}0" readonly=""class="form-control" >
                             <label>Total a Pagar:</label>
@@ -169,7 +172,7 @@
 
 
 
-                            <a href="1" class="btn btn-danger btn-block">Generar Pago</a>
+                            <a href="#" id="GenerarCompra" class="btn btn-danger btn-block">Generar Compra</a>
                         </div> 
                     </div>
                 </div>
@@ -180,10 +183,14 @@
 
         </div>
 
+<!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
 
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="assets/js/funciones.js" type="text/javascript"></script>
+
     </body>
 </html>

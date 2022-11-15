@@ -98,7 +98,7 @@
             <tr bgcolor="#9ACD32">
                 <%-- colspan para que quede entoda la cabecera --%>
            
-                <th colspan="6" align="center"> <label for="nomb" class="center">Manteimiento de Usuarios</label> </th>
+                <th colspan="6" align="center"> <label for="nomb" class="center">Mantenimiento de Usuarios</label> </th>
                
            
             
