@@ -322,11 +322,11 @@
 
                                 </div>
                                 <div class="pricing-icon text-center">
-                                    <img src="ControladorIMG?id=${p.getId()}" alt="Agua" height="200px">
+                                    <img src="ControladorIMG?id=${p.getId()}" alt="Agua" height="200">
                                 </div>
                                 <div class="features-content">
                                     <p class="text" >${p.getDescripcion()}</p>
-                                    <p class="text"> $ ${p.getPrecioventa()} </p>
+                                    <p class="text"> $ ${p.getPrecioventa()}0 </p>
                                     <a class="btn btn-danger" href="ProductoController?accion=AgregarCarrito&id=${p.getId()}" >Agregar </a>
                                     <a class="features-btn" href="ProductoController?accion=Comprar&id=${p.getId()}">COMPRAR</a>
                                 </div>
