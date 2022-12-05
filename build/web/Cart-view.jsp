@@ -86,79 +86,96 @@
                 <div class="col-sm-8">
                     <div class="card"> 
 
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Data Table</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table  class="table table-hover" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ITEM</th>
-                                        <th>NOMBRE</th>
-                                        <th>DESCRIPCION</th>
-                                        <th>PRECIO</th>
-                                        <th>CANT</th>
-                                        <th>SUBTOTAL</th>
-                                        <th>ACCION</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="car" items="${carrito}">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i>
+                            Data Table</div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table  class="table table-hover" width="100%" cellspacing="0">
+                                    <thead>
                                         <tr>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getNombre()}</td>
-                                            <td>${car.getDescripcion()}
-                                             <img src="ControladorIMG?id=${car.getId()}" width="100" height="100">
-                                            </td>
-                                            <td>${car.getPreciocompra()}</td>
-                                            <td>
-                                               <input type="hidden" id="idpro" value="${car.getId()}" class="form-control text-control" min="1" >  
-                                    <input type="number" id="Cantidad" value="${car.getCantidad()}" class="form-control text-control" min="1" >
-                                            </td>
-                                            <td>${car.getSubtotal()}</td>
+                                            <th>ITEM</th>
+                                            <th>NOMBRE</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>PRECIO</th>
+                                            <th>CANT</th>
+                                            <th>SUBTOTAL</th>
+                                            <th>ACCION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="car" items="${carrito}">
+                                            <tr>
+                                                <td>${car.getItem()}</td>
+                                                <td>${car.getNombre()}</td>
+                                                <td>${car.getDescripcion()}
+                                                    <img src="ControladorIMG?id=${car.getId()}" width="100" height="100">
+                                                </td>
+                                                <td>${car.getPreciocompra()}</td>
+                                                <td>
+                                                    <input type="hidden" id="idpro" value="${car.getId()}" class="form-control text-control" min="1" >  
+                                                    <input type="number" id="Cantidad" value="${car.getCantidad()}" class="form-control text-control" min="1" >
+                                                </td>
+                                                <td>${car.getSubtotal()}</td>
 
-                                            <td>
-                                                <input type="hidden" id="idp" value="${car.getId()}">
-                                                <a href="#" id="btnDelete">Eliminar</a>
-                                                <a href="#" id="btnDel">Editar</a>
-                                            </td>
-                                        </tr>  
+                                                <td>
+                                                    <input type="hidden" id="idp" value="${car.getId()}">
+                                                    <a href="#" id="btnDelete">Eliminar</a>
+                                                    <a href="#" id="btnDel">Editar</a>
+                                                </td>
+                                            </tr>  
 
-                                    </c:forEach>
+                                        </c:forEach>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
 
 
-                        </div>
-                    </div> 
-                        
-                        </div>
+                            </div>
+                        </div> 
+
+                    </div>
                 </div>
 
 
                 <div class="col-sm-4">
 
-                    <div class="card">
-                        <div class="card-header">
-
-                            <h3> Generar Compra</h3>
-
-                        </div> 
-                        <div class="card-body">
-                            <label>Subtotal:</label>
-                            <input type="text" value="$.${subtotal}0" readonly=""class="form-control" >
-                            <label>Descuento:</label>
-                            <input type="text"value="$.${descuento}0" readonly=""class="form-control" >
-                            <label>Total a Pagar:</label>
-                            <input type="text" value="$.${totalpagar}0" readonly=""class="form-control" >
-                        </div> 
-                        <div class="card-footer">
-
-                            <a href="ProductoController?accion=Carrito" class="btn btn-info btn-block"> Realizar Pago</a>
+                    <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
 
 
+                        <div class="card">
+                            <div class="card-header">
+
+                                <h3> Generar Compra</h3>
+
+                            </div> 
+                            <div class="card-body">
+                                <label>Subtotal:</label>
+                                <input type="text" value="$.${subtotal}0" readonly=""class="form-control" >
+                                <label>Descuento:</label>
+                                <input type="text"value="$.${descuento}0" readonly=""class="form-control" >
+                                <label>Total a Pagar:</label>
+                                <input type="text" value="$.${totalpagar}0" readonly=""class="form-control" >
+
+                                <input name="merchantId"      type="hidden"  value="508029"   >
+                                <input name="accountId"       type="hidden"  value="512321" >
+                                <input name="description"     type="hidden"  value="VENTAS EN LINEA"  >
+                                <input name="referenceCode"   type="hidden"  value="PAGO01" >
+                                <input name="amount"          type="hidden"  value="2000.0"   >
+                                <input name="tax"             type="hidden"  value="0"  >
+                                <input name="taxReturnBase"   type="hidden"  value="0" >
+                                <input name="currency"        type="hidden"  value="COP" >
+                                <input name="signature"       type="hidden"  value="f79a3f4c967c3ed4cd19ccd5b4d27372"  >
+                                <input name="test"            type="hidden"  value="0" >
+                                <input name="buyerEmail"      type="hidden"  value="test@cliente.com" >
+                                <input name="responseUrl"     type="hidden"  value="http://www.test.com/response" >
+                                <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" >
+                                <input name="Submit"          type="submit"  value="Realizar pago" class="btn btn-info btn-block" >
+                            </div> 
+                            <div class="card-footer">
+
+<!--                                <a href="ProductoController?accion=Carrito" class="btn btn-info btn-block"> Realizar Pago</a>
+-->
 
 
 
@@ -172,9 +189,13 @@
 
 
 
-                            <a href="#" id="GenerarCompra" class="btn btn-danger btn-block">Generar Compra</a>
-                        </div> 
-                    </div>
+
+                                <a href="#" id="GenerarCompra" class="btn btn-danger btn-block">Generar Compra</a>
+                            </div> 
+                        </div>
+
+                    </form> 
+
                 </div>
 
             </div>
@@ -183,14 +204,14 @@
 
         </div>
 
-<!--====== Jquery js ======-->
-    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+        <!--====== Jquery js ======-->
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
 
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="assets/js/funciones.js" type="text/javascript"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="assets/js/funciones.js" type="text/javascript"></script>
 
     </body>
 </html>
