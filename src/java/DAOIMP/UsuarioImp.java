@@ -7,8 +7,11 @@ package DAOIMP;
 
 import DAO.Conexion;
 import Interfaces.Iusuario;
+import Modelo.Producto;
+
  
 import Modelo.Usuario;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +26,53 @@ import java.util.List;
  */
 public class UsuarioImp  implements Iusuario{
    Conexion con = new Conexion();
+   
+      Connection cn;
+   
+    PreparedStatement psta;
+    ResultSet rs;
+   
+   
+   
+   
+       public List<Usuario>  ListarusuarioId(int id) {
+        List<Usuario> ListUsuario = new ArrayList<>();
+        Usuario u = new Usuario();
+
+        try {
+            String sql = "SELECT * FROM usuarios where id=" + id;
+
+            cn = con.Conectar();
+            psta = cn.prepareStatement(sql);
+            rs = psta.executeQuery();
+
+            while (rs.next()) {
+
+               u.setIdentificacion(rs.getString(2));
+                u.setNombre(rs.getString(3));
+                u.setDireccion(rs.getString(4));
+                u.setTelefono(rs.getString(5));
+                u.setCorreo(rs.getString(6));
+                //           Producto P = new Producto(id,nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,estados_id,unidadesdemedidas_id,img);
+                ListUsuario.add(u);
+
+                System.out.print("Objetos cargados Usuario:" + "" + u.getCorreo());
+
+            }
+
+        } catch (SQLException e) {
+
+            System.out.print("Error ListarID Usuario" + e.getMessage());
+
+        }
+        return ListUsuario;
+
+    }
+   
+   
+   
+   
+   
     @Override
     public List<Usuario> ListarUsuario() {
         

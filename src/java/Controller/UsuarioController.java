@@ -7,8 +7,12 @@ package Controller;
 
 import DAO.Conexion;
 import DAO.UsuarioCrud;
+import DAOIMP.UsuarioImp;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "UsuarioController", urlPatterns = {"/UsuarioController"})
 public class UsuarioController extends HttpServlet {
+    
+     int idu;
+     UsuarioImp udao = new UsuarioImp();
+     List<Usuario> usuarios = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,11 +41,10 @@ public class UsuarioController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        
             /* TODO output your page here. You may use following sample code. */
            UsuarioCrud con = new UsuarioCrud() ;
-           
+            String accion = request.getParameter("accion");
            if (request.getParameter("btningresar")!=null){
                
                
@@ -49,10 +56,25 @@ public class UsuarioController extends HttpServlet {
            
            }
             
+           
+            switch (accion) {
+
+            case "ListarUsuario":
+                idu = Integer.parseInt(request.getParameter("id"));
+                usuarios = udao.ListarusuarioId(idu);
+                
             
+                request.setAttribute("usuarios", usuarios);
+                request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                break;
             
-            
+               default:
+//                request.setAttribute("productos", productos);
+//                request.getRequestDispatcher("Products.jsp").forward(request, response);
+
         }
+            
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

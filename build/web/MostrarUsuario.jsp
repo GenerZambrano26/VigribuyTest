@@ -102,7 +102,7 @@
                
            
             
-                <th> <a href="Createaccount.html">Nuevo </a></th>
+                <th> <a href="Createaccount.html">Nuevo </a> <a href="UsuarioController?accion=ListarUsuario&id=2">Listar usuario </a></th>
                                
             </tr>
             
