@@ -68,6 +68,41 @@ public class UsuarioImp  implements Iusuario{
         return ListUsuario;
 
     }
+       
+        public List<Usuario>  Listarusuariocorreo(String correo) {
+        List<Usuario> ListUsuario = new ArrayList<>();
+        Usuario u = new Usuario();
+
+        try {
+            String sql = "SELECT * FROM usuarios where correo="+"'"+correo+"'";
+
+            cn = con.Conectar();
+            psta = cn.prepareStatement(sql);
+            rs = psta.executeQuery();
+
+            while (rs.next()) {
+                
+                u.setId(rs.getString(1));
+                u.setIdentificacion(rs.getString(2));
+                u.setNombre(rs.getString(3));
+                u.setDireccion(rs.getString(4));
+                u.setTelefono(rs.getString(5));
+                u.setCorreo(rs.getString(6));
+                //           Producto P = new Producto(id,nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,estados_id,unidadesdemedidas_id,img);
+                ListUsuario.add(u);
+
+                System.out.print("Objetos cargados Id Usuario:" + "" + u.getId());
+
+            }
+
+        } catch (SQLException e) {
+
+            System.out.print("Error ListarID Usuario" + e.getMessage());
+
+        }
+        return ListUsuario;
+
+    }
    
    
    

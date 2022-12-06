@@ -27,8 +27,11 @@ import javax.servlet.http.HttpServletResponse;
 public class UsuarioController extends HttpServlet {
     
      int idu;
+     String correo;
+     
      UsuarioImp udao = new UsuarioImp();
      List<Usuario> usuarios = new ArrayList<>();
+     List<Usuario> iduser = new ArrayList<>();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -65,6 +68,17 @@ public class UsuarioController extends HttpServlet {
                 
             
                 request.setAttribute("usuarios", usuarios);
+                request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                break;
+                
+                
+                
+                 case "Login":
+                correo = request.getParameter("inputEmail");
+                iduser = udao.Listarusuariocorreo(correo);
+                System.out.print(correo);
+            
+                request.setAttribute("iduser", iduser);
                 request.getRequestDispatcher("ListUser.jsp").forward(request, response);
                 break;
             

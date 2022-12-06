@@ -123,7 +123,7 @@
             
             
       
-       <c:forEach items="${usuarios}" var="User"> 
+       <c:forEach items="${iduser}" var="User"> 
            
            <%--%> <c:forEach var="datos" items="${Departa}"> comment --%>
           
