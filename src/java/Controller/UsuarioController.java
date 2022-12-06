@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "UsuarioController", urlPatterns = {"/UsuarioController"})
 public class UsuarioController extends HttpServlet {
-    
+    int r;
      int idu;
      String correo;
-     
+     Usuario u=new Usuario();
      UsuarioImp udao = new UsuarioImp();
      List<Usuario> usuarios = new ArrayList<>();
      List<Usuario> iduser = new ArrayList<>();
@@ -58,6 +58,53 @@ public class UsuarioController extends HttpServlet {
            
            
            }
+           
+           
+           
+         String acceso = request.getParameter("accion");
+        if (acceso.equals("Ingresar")) {
+            String corre=request.getParameter("inputEmail");
+            String contraseña=request.getParameter("inputPassword");
+            u.setCorreo(corre);
+            u.setContraseña(contraseña);
+            r=udao.validar(u);
+            if (r==1) {
+                correo = request.getParameter("inputEmail");
+                iduser = udao.Listarusuariocorreo(correo);
+                System.out.print(correo);
+            
+                request.setAttribute("iduser", iduser);
+                request.getSession().setAttribute("correo", corre);
+                request.getSession().setAttribute("contraseña", contraseña);
+                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+            }
+        } else {
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }
+           
+           String salir = request.getParameter("accion");
+        if (salir.equals("Salir")) {
+            String corre=request.getParameter("0");
+            String contraseña=request.getParameter("0");
+            u.setCorreo(corre);
+            u.setContraseña(contraseña);
+            r=udao.validar(u);
+            if (r==1) {
+                request.getSession().setAttribute("correo", corre);
+                request.getSession().setAttribute("contraseña", contraseña);
+                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+            } else {
+                 request.getSession().setAttribute("correo", "");
+                request.getSession().setAttribute("contraseña", "");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } 
+           
+           
             
            
             switch (accion) {
@@ -74,7 +121,7 @@ public class UsuarioController extends HttpServlet {
                 
                 
                  case "Login":
-                correo = request.getParameter("inputEmail");
+//                correo = request.getParameter("inputEmail");
                 iduser = udao.Listarusuariocorreo(correo);
                 System.out.print(correo);
             

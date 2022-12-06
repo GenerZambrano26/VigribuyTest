@@ -27,12 +27,44 @@ import java.util.List;
 public class UsuarioImp  implements Iusuario{
    Conexion con = new Conexion();
    
-      Connection cn;
+    Connection cn;
    
     PreparedStatement psta;
     ResultSet rs;
    
    
+    
+    
+     public int validar(Usuario usu) {
+        int r=0;
+        String sql="Select * from usuarios where correo=? and contraseña=?";
+        try {
+            cn = con.Conectar();
+            psta = cn.prepareStatement(sql);
+            psta.setString(1, usu.getCorreo());
+            psta.setString(2, usu.getContraseña());
+            rs=psta.executeQuery();
+            while (rs.next()) {
+                r=r+1;
+                usu.setCorreo(rs.getString("correo"));
+                usu.setContraseña(rs.getString("contraseña"));
+            }
+            if (r==1) {
+                return 1;
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            
+             System.out.print("Error validar usuario " + e.getMessage());
+            return 0;
+        }
+    }
+
+    
+    
+    
    
    
        public List<Usuario>  ListarusuarioId(int id) {
