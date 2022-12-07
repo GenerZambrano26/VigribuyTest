@@ -5,20 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
 
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
+    <!--====== Title ======-->
     <title>Login</title>
 
     <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
@@ -42,19 +39,17 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="assets/css/style.css">
 
+
     <!-- Custom styles formularios this template-->
     <link href="assets/css/cssform/fomularios.css" rel="stylesheet">
-
 </head>
 
-<body >
-
-
+<body>
 
 
     <!--Color verde en el header de create account-->
     <section class="navbar-area" style="background-color: #9ACD32">
-          <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
@@ -95,13 +90,14 @@
 
 
 
-    <    <!-- color area crear style="background-color: #9ACD32" cuenta-->
+    <!-- color area crear style="background-color: #9ACD32" cuenta-->
     <section id="services" class="features-area" style="background-color: #e8eee8">
         <div class="container">
-        <div class="card  card-login  mx-auto mt-5">
-            <div class="card-header">Login</div>
-            <div class="card-body">
-                <form action="UsuarioController" method="post" >
+
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">   <h4 class="contact-title pb-10"><!--<i class="lni lni-envelope"></i>--><span></span> </h4></div>
+                <div class="card-body">
+                    <form action="UsuarioController" method="post" >
                     <div class="form-group">
                         <div class="form-label-group">
                             <label for="inputEmail">Email address</label>
@@ -124,18 +120,29 @@
                             </label>
                         </div>
                     </div>
+                    
+                      <div class="form-group">
+                        <!--<div class="checkbox">-->
+                            <label>
+                              <!--<label type="text" value="${lbError}"  class="form-control" >-->
+                                <h5 class="alert-heading" style="color:red;"><%=request.getParameter("Error")%></h5>
+                            </label>
+                        <!--</div>-->
+                    </div>
                     <div class="form-input light-rounded-buttons mt-30">
                         <button class="main-btn light-rounded-two" name="accion" value="Ingresar">Ingresar</button>
                     </div> <!-- form input -->
                 </form>
-                <div class="text-center">
-                    <a class="d-block small mt-3" href="Createaccount.jsp">Register an Account</a>
-                    <a class="d-block small" href="Forgot-password.html">Forgot Password?</a>
+                    <div class="text-center">
+                        <a class="d-block small mt-3" href="Createaccount.html">Register an Account</a>
+                        <a class="d-block small" href="Forgot-password.html">Forgot Password?</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+
+    </section>
+
 
     <!--====== FOOTER PART START ======-->
 
@@ -147,7 +154,7 @@
                         <!--<a class="mt-30" href="index.html"><img src="assets/images/logo.svg" alt="Logo"></a>-->
                     </div> <!-- footer logo -->
                     <ul class="social text-center mt-60">
-                        <li><a href="https://facebook.com"><i class="lni lni-facebook-filled"></i></a></li>
+                        <li><a href="https://facebook.com/"><i class="lni lni-facebook-filled"></i></a></li>
                         <li><a href="https://twitter.com/"><i class="lni lni-twitter-original"></i></a></li>
                         <li><a href="https://instagram.com/"><i class="lni lni-instagram-original"></i></a></li>
                         <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
@@ -166,13 +173,32 @@
     </section>
 
     <!--====== FOOTER PART ENDS ======-->
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--====== SLIDER PART ENDS ======-->
+    <!--====== FEATRES TWO PART START ======-->
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TOP TOP PART START ======-->
 
-  
+    <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
 
-       <!--====== Bootstrap js ======-->
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== PART START ======-->
+    <!--
+        <section class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    -->
+    <!--====== PART ENDS ======-->
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
@@ -187,7 +213,7 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
-

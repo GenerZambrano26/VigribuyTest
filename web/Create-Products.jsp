@@ -54,7 +54,7 @@
                     <nav class="navbar navbar-expand-lg">
 
                         <a class="navbar-brand" href="#">
-                            <img src="assets/images/logo.svg" alt="Logo">
+                           <img src="assets/images/Vegrilogo.png" width="130px" height="80px" alt="Logo">
                         </a>
 
                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,7 +97,7 @@
                 
                 <div class="alert alert-success" role="alert">
                     
-                    <h4 class="alert-heading"><%=request.getParameter("msg")%></h4>
+                    <h5 class="alert-heading" ><%=request.getParameter("msg")%></h5>
                     
 <!--                    <a href="index.jsp" class="btn btn-warning">Inicio</a>-->
                     

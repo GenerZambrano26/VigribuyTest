@@ -53,7 +53,7 @@
                     <nav class="navbar navbar-expand-lg">
 
                         <a class="navbar-brand" href="#">
-                            <img src="assets/images/logo.svg" alt="Logo">
+                              <img src="assets/images/Vegrilogo.png" width="130px" height="80px" alt="Logo">
                         </a>
 
                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">

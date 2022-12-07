@@ -55,7 +55,7 @@
                         <nav class="navbar navbar-expand-lg">
 
                             <a class="navbar-brand" href="#">
-                                <img src="assets/images/logo.svg" alt="Logo">
+                               <img src="assets/images/Vegrilogo.png" width="130px" height="80px" alt="Logo">
                             </a>
 
                             <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,7 +92,7 @@
               
                     <div class="card-header text-center">Actualizar Datos</div>
                     <div class="card-body">
-                        <form action="UsuarioController" method="POST">
+                        <form action="UsuarioController" method="post">
                             <!-- Datos para crear cuenta -->
 
                             <c:forEach items="${usuarios}" var="user">
@@ -206,13 +206,13 @@
                                     </label>
                                 </div>
                             </div>-->
-                            <div class="btn-group-toggle text-center">
+                            <div class="btn-group-toggle">
                                 <!-- cambiar para ver si es el error -->
                               
-                                <input class="btn btn-success" type="submit" name="accion" value="Actualizar"><br>
+                                <input class="btn btn-success" type="submit" name="accion"  value="Actualizar">
                                 
                                 <!--<a href="LoginController?accion=listar">Regresar</a>-->
-                                <!--<button href="Pincipal.jsp" accion="Cancelar" class="btn btn-danger" name="btnCancelar">Cancelar</button>-->
+                                <input  type="submit"  class="btn btn-danger float-right" name="accion"  value="Cancelar">
                             </div> <!-- form input -->
   </c:forEach>
                         </form>

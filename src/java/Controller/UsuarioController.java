@@ -32,6 +32,7 @@ public class UsuarioController extends HttpServlet {
      UsuarioImp udao = new UsuarioImp();
      List<Usuario> usuarios = new ArrayList<>();
      List<Usuario> iduser = new ArrayList<>();
+String msg;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -129,7 +130,10 @@ public class UsuarioController extends HttpServlet {
                 request.setAttribute("iduser", iduser);
                 request.getRequestDispatcher("Principal.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
+                
+                msg="Usuario o contreseña incorrectos";
+                request.getSession().setAttribute("lbError", msg);
+                request.getRequestDispatcher("Login.jsp?Error=Usuario o contreseña incorrectos").forward(request, response);
             }
         } else {
             request.getRequestDispatcher("Login.jsp").forward(request, response);
@@ -152,8 +156,10 @@ public class UsuarioController extends HttpServlet {
                 request.getSession().setAttribute("contraseña", contraseña);
                 request.getRequestDispatcher("Principal.jsp").forward(request, response);
             } else {
-                 request.getSession().setAttribute("correo", "");
+             
+                request.getSession().setAttribute("correo", "");
                 request.getSession().setAttribute("contraseña", "");
+                
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         } else {
@@ -191,7 +197,16 @@ public class UsuarioController extends HttpServlet {
                 request.setAttribute("usuarios", iduser);
                 request.getRequestDispatcher("Update-Account.jsp").forward(request, response);
                 break;
-                
+                  
+              case "Inicial":
+//                idu = Integer.parseInt(request.getParameter("id"));
+//                usuarios = udao.ListarusuarioId(idu);
+                String error;
+                error = "Bienvenido"; 
+            
+                request.setAttribute("Error", error);
+                request.getRequestDispatcher("Login.jsp?Error=").forward(request, response);
+                break;
                 
                  case "Actualizar":
                 con.update("Update usuarios set nombre='" + request.getParameter("inputNombres") + "',direccion='"+ request.getParameter("inputDireccion")+"',telefono='"+ request.getParameter("inputTelefono")+"' where id= '"+ request.getParameter("txtid")+"'");
@@ -208,6 +223,19 @@ public class UsuarioController extends HttpServlet {
                
                 break;
             
+                     case "Cancelar":
+               
+                 
+                iduser = udao.Listarusuariocorreo(correo);
+                 request.setAttribute("iduser", iduser);
+                request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                
+               response.sendRedirect("ListUser.jsp?msg=Datos Guardados!!");
+               
+               
+               
+               
+                break;
                default:
 //                request.setAttribute("productos", productos);
 //                request.getRequestDispatcher("Products.jsp").forward(request, response);
