@@ -61,21 +61,72 @@ public class UsuarioController extends HttpServlet {
            
            
            
-         String acceso = request.getParameter("accion");
-        if (acceso.equals("Ingresar")) {
-            String corre=request.getParameter("inputEmail");
+//         String acceso = request.getParameter("accion");
+//        if (acceso.equals("Ingresar")) {
+//            String corre=request.getParameter("inputEmail");
+//            String contraseña=request.getParameter("inputPassword");
+//            u.setCorreo(corre);
+//            u.setContraseña(contraseña);
+//            r=udao.validar(u);
+//            if (r==1) {
+//               correo = request.getParameter("inputEmail");
+//                iduser = udao.Listarusuariocorreo(correo);
+//               // System.out.print(corre);
+//            
+//
+//                request.getSession().setAttribute("correo", corre);
+//                request.getSession().setAttribute("contraseña", contraseña);
+//                request.setAttribute("iduser", iduser);
+//                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+//            } else {
+//                request.getRequestDispatcher("Login.jsp").forward(request, response);
+//            }
+//        } else {
+//            request.getRequestDispatcher("Login.jsp").forward(request, response);
+//        }
+           
+//           String salir = request.getParameter("accion");
+//        if (salir.equals("Salir")) {
+//            correo="";
+//            
+//            String corre=request.getParameter("0");
+//            String contraseña=request.getParameter("0");
+//            u.setCorreo(corre);
+//            u.setContraseña(contraseña);
+//            r=udao.validar(u);
+//            if (r==1) {
+//                request.getSession().setAttribute("correo", corre);
+//                request.getSession().setAttribute("contraseña", contraseña);
+//                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+//            } else {
+//                 request.getSession().setAttribute("correo", "");
+//                request.getSession().setAttribute("contraseña", "");
+//                request.getRequestDispatcher("index.jsp").forward(request, response);
+//            }
+//        } else {
+//            request.getRequestDispatcher("index.jsp").forward(request, response);
+//        } 
+           
+           
+            
+           
+            switch (accion) {
+                 case "Ingresar":
+                       if (accion.equals("Ingresar")) {
+                String corre=request.getParameter("inputEmail");
             String contraseña=request.getParameter("inputPassword");
             u.setCorreo(corre);
             u.setContraseña(contraseña);
             r=udao.validar(u);
             if (r==1) {
-                correo = request.getParameter("inputEmail");
+               correo = request.getParameter("inputEmail");
                 iduser = udao.Listarusuariocorreo(correo);
-                System.out.print(correo);
+               // System.out.print(corre);
             
-                request.setAttribute("iduser", iduser);
+
                 request.getSession().setAttribute("correo", corre);
                 request.getSession().setAttribute("contraseña", contraseña);
+                request.setAttribute("iduser", iduser);
                 request.getRequestDispatcher("Principal.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
@@ -83,9 +134,14 @@ public class UsuarioController extends HttpServlet {
         } else {
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
-           
-           String salir = request.getParameter("accion");
-        if (salir.equals("Salir")) {
+                break;
+                
+                 case "Salir":
+                     
+                     
+                      if (accion.equals("Salir")) {
+            correo="";
+            
             String corre=request.getParameter("0");
             String contraseña=request.getParameter("0");
             u.setCorreo(corre);
@@ -103,11 +159,8 @@ public class UsuarioController extends HttpServlet {
         } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } 
-           
-           
-            
-           
-            switch (accion) {
+                
+                
 
             case "ListarUsuario":
                 idu = Integer.parseInt(request.getParameter("id"));
@@ -120,13 +173,39 @@ public class UsuarioController extends HttpServlet {
                 
                 
                 
-                 case "Login":
+                 case "Listar":
 //                correo = request.getParameter("inputEmail");
-                iduser = udao.Listarusuariocorreo(correo);
-                System.out.print(correo);
+               // iduser = udao.Listarusuariocorreo(correo);
+                //System.out.print(correo);
             
                 request.setAttribute("iduser", iduser);
                 request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                break;
+                
+                
+              case "EditarUsuario":
+//                idu = Integer.parseInt(request.getParameter("id"));
+//                usuarios = udao.ListarusuarioId(idu);
+//                
+            
+                request.setAttribute("usuarios", iduser);
+                request.getRequestDispatcher("Update-Account.jsp").forward(request, response);
+                break;
+                
+                
+                 case "Actualizar":
+                con.update("Update usuarios set nombre='" + request.getParameter("inputNombres") + "',direccion='"+ request.getParameter("inputDireccion")+"',telefono='"+ request.getParameter("inputTelefono")+"' where id= '"+ request.getParameter("txtid")+"'");
+               
+                 
+                iduser = udao.Listarusuariocorreo(correo);
+                 request.setAttribute("iduser", iduser);
+                request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                
+               response.sendRedirect("ListUser.jsp?msg=Datos Guardados!!");
+               
+               
+               
+               
                 break;
             
                default:

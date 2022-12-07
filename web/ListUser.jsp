@@ -86,25 +86,25 @@
          <section id="services" class="features-area" style="background-color: #e8eee8">
         <div class="container"> 
         
-       <h1 align="center">Mostrar Usuarios</h1>
+       <h1 align="center">Mostrar Usuario</h1>
         
        <%--<table border ="1" width="900" align="center">--%>
             <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-           Tables USUARIOS</div>
+           USUARIO</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="bold:none;font-family:arial;font-size:1">
             <tr bgcolor="#9ACD32">
                 <%-- colspan para que quede entoda la cabecera --%>
            
-                <th colspan="6" align="center"> <label for="nomb" class="center">Mantenimiento de Usuarios</label> </th>
+<!--                <th colspan="6" align="center"> <label for="nomb" class="center">Mantenimiento de Usuarios</label> </th>
                
            
             
-                <th> <a href="Createaccount.html">Nuevo </a></th>
+                <th> <a href="Createaccount.html">Nuevo </a></th>-->
                                
             </tr>
             
@@ -132,10 +132,12 @@
               <th> ${User.id}</th>
               <th> ${User.identificacion}</th>
               <th> ${User.nombre}</th>  
-              <th> ${User.telefono}</th> 
               <th> ${User.direccion}</th> 
               <th> ${User.correo}</th> 
-                <th> <a href="Actualizar.jsp?cod=${Usuario.id}"><img src="assets/images/crud/select.png"></a> <a href="Eliminar.jsp?id=${Usuario.id}"> <img src="assets/images/crud/Eliminar.jpg" width="20"> </a></th>
+              <th> ${User.telefono}</th> 
+                <th> <a href="UsuarioController?accion=EditarUsuario"><img src="assets/images/crud/select.png"></a>
+                    <!--<a href="Eliminar.jsp?id=${Usuario.id}"> <img src="assets/images/crud/Eliminar.jpg" width="20"> </a>-->
+                </th>
               <%--  </c:forEach>--%>
                 
                 </tr> 
@@ -155,7 +157,7 @@
 </br>
 <table  align="center" class="table table-bordered">
 
-            <th colspan="6" align="center">  <%=request.getParameter("msg")%> </th>
+<!--            <th colspan="6" align="center">  <%=request.getParameter("msg")%> </th>-->
             </table>
        </div>
 

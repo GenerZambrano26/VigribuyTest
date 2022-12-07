@@ -39,5 +39,24 @@ public class UsuarioCrud {
         }
         
     }
+    
+    
+        public void update(String insSQL){
+        
+        try{
+        
+        ps = con.Conectar().prepareStatement(insSQL);
+        ps.executeUpdate();
+        
+        
+         System.out.print("Insercion exitosa");
+                
+        }catch(SQLException e){
+        
+            System.out.print("Error Insercion usuario " + e.getMessage());
+        
+        }
+        
+    }
 
 }

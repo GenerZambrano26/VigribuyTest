@@ -3,7 +3,7 @@
     Created on : 25-nov-2022, 20:09:12
     Author     : ronald
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -99,7 +99,7 @@
                                         <a>Direccion</a><br>
                                         <div class="dropdown-divider"></div><br>-->
                                         <div>
-                                            <a href="ListUser.jsp" class="nav-link">Datos Personales</a>
+                                            <a href="UsuarioController?accion=Listar" class="nav-link">Datos Personales</a>
                                             <a href="UsuarioController?accion=Salir" class="nav-link">Salir</a> 
                                         </div>
 
@@ -147,11 +147,17 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-10">
-                        <h5 class="text-center">Bienvenido <strong>Usuario: ${nombre}</strong></h5><br>
+                        
+                        <c:forEach items="${iduser}" var="User"> 
+                        
+                        <h5 class="text-center">Bienvenido <strong> ${User.nombre}</strong></h5><br>
                         <div class="section-title text-center pb-10">
                             <h3 class="title">Productos</h3>
                             <p class="text">Encuentre todos los productos del campo Colombiano que necesites</p>
                         </div> <!-- row -->
+                   
+                     </c:forEach>  
+                    
                     </div>
                 </div> <!-- row -->
                 <div class="row justify-content-center">
