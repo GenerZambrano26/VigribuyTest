@@ -9,16 +9,16 @@ $(function() {
     });
     
     
-    //===== Sticky
+    //===== Sticky para cambiar los logos 
 
     $(window).on('scroll', function (event) {
         var scroll = $(window).scrollTop();
         if (scroll < 20) {
             $(".navbar-area").removeClass("sticky");
-            $(".navbar-area img").attr("src", "assets/images/logo.svg");
+            $(".navbar-area img").attr("src", "assets/images/Vegrilogo.png");
         } else {
             $(".navbar-area").addClass("sticky");
-            $(".navbar-area img").attr("src", "assets/images/logo-2.svg");
+            $(".navbar-area img").attr("src", "assets/images/Vegrilogo-2.png");
         }
     });
 

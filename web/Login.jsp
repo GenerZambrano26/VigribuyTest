@@ -54,13 +54,13 @@
 
     <!--Color verde en el header de create account-->
     <section class="navbar-area" style="background-color: #9ACD32">
-        <div class="container">
+          <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
 
                         <a class="navbar-brand" href="#">
-                            <img src="assets/images/logo.svg" alt="Logo">
+                             <img src="assets/images/Vegrilogo.png" width="130px" height="80px" alt="Logo">
                         </a>
 
                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,22 +68,22 @@
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>
                         </button>-->
-                        <!--<div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
-                                <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
+<!--                                <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#services">Servicios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#portfolio">Portfolio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#pricing">Precios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#about">Acerca</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>-->
                             </ul>
-                        </div>-->
+                        </div>
                         <!--boton menu-->
-                        <!--<div class="navbar-btn d-none d-sm-inline-block">
+                          <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="solid" href="#Createacount"></a></li>
+                                <li><a class="solid" href="index.jsp">Home</a></li>
                             </ul>
-                        </div>-->
+                        </div>
                     </nav> <!-- navbar -->
                 </div>
             </div> <!-- row -->
@@ -147,9 +147,9 @@
                         <!--<a class="mt-30" href="index.html"><img src="assets/images/logo.svg" alt="Logo"></a>-->
                     </div> <!-- footer logo -->
                     <ul class="social text-center mt-60">
-                        <li><a href="https://facebook.com/uideckHQ"><i class="lni lni-facebook-filled"></i></a></li>
-                        <li><a href="https://twitter.com/uideckHQ"><i class="lni lni-twitter-original"></i></a></li>
-                        <li><a href="https://instagram.com/uideckHQ"><i class="lni lni-instagram-original"></i></a></li>
+                        <li><a href="https://facebook.com"><i class="lni lni-facebook-filled"></i></a></li>
+                        <li><a href="https://twitter.com/"><i class="lni lni-twitter-original"></i></a></li>
+                        <li><a href="https://instagram.com/"><i class="lni lni-instagram-original"></i></a></li>
                         <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
                     </ul> <!-- social -->
                     <!--<div class="footer-support text-center">
@@ -170,9 +170,23 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
 
+       <!--====== Bootstrap js ======-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+
+    <!--====== Isotope js ======-->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+
+    <!--====== Scrolling Nav js ======-->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

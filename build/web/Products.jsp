@@ -62,11 +62,17 @@
                     <nav class="navbar navbar-expand-lg">
 
                         <a class="navbar-brand" href="#">
-                            <!--<img src="#" alt="Logo" >-->
+                            <img src="assets/images/Vegrilogo.png" width="130px" height="80px" alt="Logo">
                             <div style="height:63px">
 
                             </div>
                         </a>
+                        
+                         <div class="navbar-btn d-none d-sm-inline-block">
+                            <ul>
+                                <li><a class="nav-link" href="Index.jsp"><i class="fas fa-cart">(<label style="color:orange">${contador}</label>)</i>Home</a></li>
+                            </ul>
+                        </div>
                         <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>
@@ -74,7 +80,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarTwo">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-cart-plus">(<label style="color:orange">${contador}</label>)</i>Carrito</a></li>
+<!--                                <li class="nav-item"><a class="nav-link" href="index.jsp"><i class="fas fa-cart-plus">(<label style="color:orange">${contador}</label>)</i>HOME</a></li>-->
                                <!-- <li class="nav-item"><a class="page-scroll" href="#services">Servicios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#portfolio">Portfolio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#pricing">Precios</a></li>

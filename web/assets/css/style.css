@@ -2383,9 +2383,15 @@ p {
       border-color: #0067f4;
       color: #0067f4; }
     .navbar-area.sticky .navbar .navbar-btn li a.solid {
-      border-color: #0067f4;
+    /*  border-color: #0067f4;
       background-color: #0067f4;
-      color: #fff; }
+      color: #fff;
+    Se cambia el color de ingresar por verde*/ 
+    border-color: #fff;
+    background-color: #9ACD32;
+    color: #fff;
+    
+    }
 
 /*===========================
        10.SLIDER css 
