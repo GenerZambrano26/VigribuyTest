@@ -7,7 +7,7 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Index Jsp </title>
+    <title>VegriBuy </title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,8 +80,8 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#services">Servicios</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="ProductoController?accion=home">Portfolio</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#services">Productos</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="ProductoController?accion=home">Portafolio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="Createaccount.html">Registrarse</a></li>
 <!--                                <li class="nav-item"><a class="page-scroll" href="#about">Acerca</a></li>-->
                                 <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>

@@ -61,22 +61,22 @@
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>
                         </button>-->
-                        <!--<div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
-                                <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
+<!--                                <li class="nav-item active"><a class="page-scroll" href="#home">Inicio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#services">Servicios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#portfolio">Portfolio</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#pricing">Precios</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#about">Acerca</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#contact">Contacto</a></li>-->
                             </ul>
-                        </div>-->
+                        </div>
                         <!--boton menu-->
-                        <!--<div class="navbar-btn d-none d-sm-inline-block">
+                       <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="solid" href="#Createacount"></a></li>
+                                <li><a class="solid" href="Principal.jsp">Home</a></li>
                             </ul>
-                        </div>-->
+                        </div>
                     </nav> <!-- navbar -->
                 </div>
             </div> <!-- row -->

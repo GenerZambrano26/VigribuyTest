@@ -70,7 +70,7 @@
                         
                          <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="nav-link" href="Index.jsp"><i class="fas fa-cart">(<label style="color:orange">${contador}</label>)</i>Home</a></li>
+                                <li><a class="nav-link" href="index.jsp"><i class="fas fa-cart"></i>Home</a></li>
                             </ul>
                         </div>
                         <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
