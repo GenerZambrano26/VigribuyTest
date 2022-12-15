@@ -16,10 +16,10 @@ import Modelo.Compras;
 import Modelo.Pago;
 import Modelo.Usuario;
 import Modelo.Producto;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,6 +32,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -48,6 +49,7 @@ public class ProductoController extends HttpServlet {
     List<Producto> productos = new ArrayList<>();
     Producto p = new Producto();
     List<Carrito> ListaCarrito = new ArrayList<>();
+    List<Usuario> iduser = new ArrayList<>();
     int item;
     double totalpagar = 0.00;
     int cantidad = 1;
@@ -70,7 +72,7 @@ public class ProductoController extends HttpServlet {
 
         String accion = request.getParameter("accion");
         productos = pdao.ListarProductos();
-
+        HttpSession session = request.getSession();
         switch (accion) {
 
             case "Comprar":
@@ -91,9 +93,11 @@ public class ProductoController extends HttpServlet {
 
                 for (int i = 0; i < ListaCarrito.size(); i++) {
                     totalpagar = totalpagar + ListaCarrito.get(i).getSubtotal();
+                    subtotal = totalpagar;
 
                 }
                 request.setAttribute("totalpagar", totalpagar);
+                request.setAttribute("subtotal", subtotal);
                 request.getRequestDispatcher("Cart-view.jsp").forward(request, response);
                 break;
             case "AgregarCarrito":
@@ -218,21 +222,30 @@ public class ProductoController extends HttpServlet {
 
                 request.setAttribute("productos", productos);
                 request.getRequestDispatcher("Products.jsp").forward(request, response);
+
+                session.getAttribute("iduser");
+
                 break;
 
             case "Nuevo":
 
                 ListaCarrito = new ArrayList();
                 request.getRequestDispatcher("ProductoController?accion=home").forward(request, response);
+
                 break;
 
             case "GenerarCompra":
                 Usuario usuario = new Usuario();
-                usuario.setNombre("1");
+
+                String iduser = session.getAttribute("idusuario").toString();
+
+                usuario.setId(iduser);
+
                 ComprasImp dao = new ComprasImp();
 
                 Pago pago = new Pago();
                 Compras compras = new Compras("2", "2", usuario, 1, Fecha.FechaBD(), totalpagar, 1, 1, 1, ListaCarrito);
+              
                 int res = dao.GenerarCompra(compras);
                 if (res != 0 && totalpagar > 0) {
 
@@ -256,37 +269,43 @@ public class ProductoController extends HttpServlet {
 
                 break;
 
-                 case "Guardar":
+            case "Guardar":
 // Se agregan las librerias common fileup 1.4 y  common io 1.22
                 ArrayList<String> lista = new ArrayList<>();
                 String Cod = CodigoIMA.Codigo();
+                 String ruta;
                 try {
                     FileItemFactory file = new DiskFileItemFactory();
                     ServletFileUpload fileUpload = new ServletFileUpload(file);
                     List items = fileUpload.parseRequest(request);
-
+                   
                     for (int i = 0; i < items.size(); i++) {
 
                         FileItem fileItem = (FileItem) items.get(i);
+                        
+                        
                         if (!fileItem.isFormField()) {
-                        //fileItem.getName()
-                        String fileName = fileItem.getName();
-		        
-		        String fe = fileName.replaceAll("^.*\\.(.*)$", "$1");
-                            File f = new File("C:\\imagenes\\" + Cod+"."+ fe);
+                            //fileItem.getName()
+                            String fileName = fileItem.getName();
+                            
+                            File filearc = new File("");
+		            String directoryName = filearc.getAbsoluteFile().toString();
+
+                            String fe = fileName.replaceAll("^.*\\.(.*)$", "$1");
+                            ruta = "C:\\Users\\GENER\\OneDrive\\Documents\\NetBeansProjects\\VigribuyTest\\build\\web\\assets\\images\\product\\" + Cod + "." + fe;
+                            File f = new File("C:\\Users\\GENER\\OneDrive\\Documents\\NetBeansProjects\\VigribuyTest\\build\\web\\assets\\images\\product\\" + Cod + "." + fe);
                             fileItem.write(f);
                             p.setUrlimagen(f.getAbsolutePath());
 
                         } else {
 
                             lista.add(fileItem.getString());
-//                            pdao.insert("insert into productos (nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,Estados_id,unidadesdemedidas_id) values ('" + request.getParameter("inputNombres") + "','" + request.getParameter("inputDescripcion") + "','" + request.getParameter("inputPreciocompra") + "','" + request.getParameter("inputPrecioventa") + "' ,'" + request.getParameter("inputUrlimagen") + "','" + request.getParameter("inputExistencia") + "','" + request.getParameter("inputFecha") + "','" + request.getParameter("inputCategoria_id") + "','" + request.getParameter("inputEstados_id") + "','" + request.getParameter("inputUnidadesdemedidas_id") + "')");
+                            pdao.insert("insert into productos (nombre,descripcion,preciocompra,precioventa,urlimagen,existencias,fechavencimiento,categorias_id,Estados_id,unidadesdemedidas_id) values ('" + request.getParameter("inputNombres") + "','" + request.getParameter("inputDescripcion") + "','" + request.getParameter("inputPreciocompra") + "','" + request.getParameter("inputPrecioventa") + "' ,'" + p.getUrlimagen() + "','" + request.getParameter("inputExistencia") + "','" + request.getParameter("inputFecha") + "','" + request.getParameter("inputCategoria_id") + "','" + request.getParameter("inputEstados_id") + "','" + request.getParameter("inputUnidadesdemedidas_id") + "')");
 
                         }
 
-                        
                     }
-                    
+
 //                      for (int i = 0; i < lista.size(); i++) {
 //                        System.out.print(lista.get(i));
 //                    }
@@ -319,18 +338,13 @@ public class ProductoController extends HttpServlet {
 //                  
 //                    
 //                    pdao.Agregar(p);
-                    
-
                     response.sendRedirect("Create-Products.jsp?msg=Datos Guardados");
                 } catch (Exception ex) {
                     response.sendRedirect("Create-Products.jsp?msg= " + ex.getMessage());
 
                 }
-                
-                
 
                 break;
-           
 
             default:
                 request.setAttribute("productos", productos);

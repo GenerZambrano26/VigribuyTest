@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -58,12 +59,13 @@ public class Conexion {
         //Si es statico no lo instancio solo lo llamo
         
         
-               Conexion c = new Conexion();
-               
-        System.out.print(""+ c.Conectar());
+             Conexion c = new Conexion();               
+       System.out.print(""+ c.Conectar());
         
         
-        
+//        	File file = new File("");
+//		String directoryName = file.getAbsoluteFile().toString();
+//		System.out.println("Current Working Directory is = " +directoryName);
         
     }
          

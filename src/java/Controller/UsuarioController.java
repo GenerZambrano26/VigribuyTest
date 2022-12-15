@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,6 +33,7 @@ public class UsuarioController extends HttpServlet {
      UsuarioImp udao = new UsuarioImp();
      List<Usuario> usuarios = new ArrayList<>();
      List<Usuario> iduser = new ArrayList<>();
+    
 String msg;
 
     /**
@@ -113,6 +115,7 @@ String msg;
            
             switch (accion) {
                  case "Ingresar":
+                     HttpSession session = request.getSession();
                        if (accion.equals("Ingresar")) {
                 String corre=request.getParameter("inputEmail");
             String contraseña=request.getParameter("inputPassword");
@@ -122,13 +125,23 @@ String msg;
             if (r==1) {
                correo = request.getParameter("inputEmail");
                 iduser = udao.Listarusuariocorreo(correo);
+                
+                int id ;
+                
+                id = Integer.parseInt(iduser.get(0).getId());
+                
+                
+                session.setAttribute("idusuario",id);
                // System.out.print(corre);
             
 
                 request.getSession().setAttribute("correo", corre);
                 request.getSession().setAttribute("contraseña", contraseña);
-                request.setAttribute("iduser", iduser);
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                request.getSession().setAttribute("iduser", iduser);
+                
+                session.setAttribute("iduser",iduser);
+                //request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/Principal.jsp");
             } else {
                 
                 msg="Usuario o contreseña incorrectos";

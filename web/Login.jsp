@@ -134,8 +134,8 @@
                     </div> <!-- form input -->
                 </form>
                     <div class="text-center">
-                        <a class="d-block small mt-3" href="Createaccount.html">Register an Account</a>
-                        <a class="d-block small" href="Forgot-password.html">Forgot Password?</a>
+                        <a class="d-block small mt-3" href="Create-account.jsp">Register an Account</a>
+                        <a class="d-block small" href="Forgot-password.jsp">Forgot Password?</a>
                     </div>
                 </div>
             </div>

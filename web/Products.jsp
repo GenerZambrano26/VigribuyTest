@@ -67,12 +67,15 @@
 
                             </div>
                         </a>
-                        
+
                          <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="nav-link" href="index.jsp"><i class="fas fa-cart"></i>Home</a></li>
+                                <li><a class="nav-link" href="index.jsp"><i class="fas fa-cart">${idusuario}</i>Home</a></li>
                             </ul>
                         </div>
+                             
+                            
+                            
                         <button class="navbar-toggler" type="button" id="sidebarToggle" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>

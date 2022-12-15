@@ -121,7 +121,7 @@
                                                 <td>
                                                     <input type="hidden" id="idp" value="${car.getId()}">
                                                     <a href="#" id="btnDelete">Eliminar</a>
-                                                    <a href="#" id="btnDel">Editar</a>
+<!--                                                    <a href="#" id="btnDel">Editar</a>-->
                                                 </td>
                                             </tr>  
 
@@ -160,16 +160,16 @@
                                 <input name="merchantId"      type="hidden"  value="508029"   >
                                 <input name="accountId"       type="hidden"  value="512321" >
                                 <input name="description"     type="hidden"  value="VENTAS EN LINEA"  >
-                                <input name="referenceCode"   type="hidden"  value="PAGO01" >
-                                <input name="amount"          type="hidden"  value="2000.0"   >
+                                <input name="referenceCode"   type="hidden"  value="PAGO02" >
+                                <input name="amount"          type="hidden"  value="2000"   >
                                 <input name="tax"             type="hidden"  value="0"  >
                                 <input name="taxReturnBase"   type="hidden"  value="0" >
                                 <input name="currency"        type="hidden"  value="COP" >
-                                <input name="signature"       type="hidden"  value="f79a3f4c967c3ed4cd19ccd5b4d27372"  >
+                                <input name="signature"       type="hidden"  value="69dc99251a400222bf56c352b952b826"  >
                                 <input name="test"            type="hidden"  value="0" >
                                 <input name="buyerEmail"      type="hidden"  value="test@cliente.com" >
-                                <input name="responseUrl"     type="hidden"  value="http://www.test.com/response" >
-                                <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" >
+                                <input name="responseUrl"     type="hidden"  value="Cart-view.jsp" >
+                                <input name="confirmationUrl" type="hidden"  value="Cart-view.jsp" >
                                 <input name="Submit"          type="submit"  value="Realizar pago" class="btn btn-info btn-block" >
                             </div> 
                             <div class="card-footer">
